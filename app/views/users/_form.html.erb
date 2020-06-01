@@ -1,0 +1,13 @@
+<h1>Sign Up</h1>
+
+<%=form_for @user do |f| %>
+<%=f.label :name, "Name" %>
+<%=f.text_field :name %>
+<%=f.label :email, "Email" %>
+<%=f.email_field :email %>
+<%=f.label :password, "Password" %>
+<%=f.password_field :password %>
+<%=f.label :expertise, "Expertise" %>
+<%=f.select :expertise, ['Novice', 'Intermediate', 'Expert'] %>
+<%= f.submit %>
+<%end%>

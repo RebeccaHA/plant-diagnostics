@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   
-  resources :queries do
-    resources :plants, only: [:index, :show, :new, :edit]
+  resources :plants do
+    resources :queries, only: [:index, :create, :show, :new, :edit]
   end
   
-  resources :plants, only: [:index, :show, :new, :edit]
+  resources :queries, only: [:index,:create, :show, :new, :edit]
 
   root 'static#home'
 
