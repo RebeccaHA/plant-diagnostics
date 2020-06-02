@@ -1,0 +1,16 @@
+<%=form_for @query do |f| %>
+<%= f.label :question, "Query" %>
+<%= f.text_area :question %>
+<%= f.label :image_url, "Upload plant image" %>
+<%= f.file_field :image_url %>
+<%= f.fields_for :plant do |plant| %>
+<%=plant.label "Plant:"%>
+  <%= plant.text_field :name, list: "plant_autocomplete" %>
+  <datalist id="plant_autocomplete">
+    <% Plant.select(:name).distinct.each do |plant| %>
+      <option value="<%= plant.name %>"><br>
+    <% end %><br><br>
+  </datalist><br><br>
+<%end%>
+<%= f.submit %>
+<%end%>
