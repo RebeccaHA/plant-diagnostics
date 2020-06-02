@@ -10,3 +10,7 @@ Plant.create(name: 'Cheese plant')
 Plant.create(name: 'Money tree')
 Plant.create(name: 'Bonsai')
 Plant.create(name: 'Daisy')
+
+Query.create(question: "why is my plant dying", plant_id:"1", user_id:"1")
+Query.create(question: "What soild do I need?", plant_id:"1", user_id:"1")
+Query.create(question: "How much sunlight does it need", plant_id:"1", user_id:"1")

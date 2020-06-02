@@ -1,0 +1,6 @@
+<%= @plant.name %><br>
+<%= @queries.each do |query| %>
+<%= query.question %>
+<%end%>
+<br>
+<%= link_to "Create a new query", new_plant_query_path(@plant) %>
