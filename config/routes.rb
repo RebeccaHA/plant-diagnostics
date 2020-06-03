@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users
-  resources :diagnoses
+  
+  resources :queries do
+    resources :diagnoses, only: [:index, :create, :show, :new, :edit]
+  end
 
+  resources :diagnoses, only: [:index, :create, :show, :new, :edit]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
   resources :plants do
     resources :queries, only: [:index, :create, :show, :new, :edit]
   end
+
   
   resources :queries, only: [:index,:create, :show, :new, :edit]
 

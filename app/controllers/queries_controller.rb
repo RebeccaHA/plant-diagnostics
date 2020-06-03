@@ -1,27 +1,35 @@
 class QueriesController < ApplicationController
     def new
-        @query = Query.new
+      @query = Query.new
+      if params[:plant_id]
+        @query.plant_id = params[:plant_id]
+      else
         @query.build_plant
+      end #add if statement for plant _id
     end
 
     def create
         @query = Query.new(query_params)
         @query.user = current_user
-        @query.plant = Plant.find_by(name: params[:query][:plant_attributes][:name])
-  
-        if  @query.save 
-        redirect_to plant_queries_path(@query)
+     
+        if !@query.plant_id
+          @query.plant = Plant.find_or_create_by(name: params[:query][:plant_attributes][:name])
         end
+
+        @query.save 
+        redirect_to plant_queries_path(@query.plant)
+        
     end 
 
     def index
-      @plant = Plant.find(params[:plant_id])
-      @queries = @plant.queries
+      @plant = Plant.find_by(id: params[:plant_id])
+    
     end
 
     def show
+   
         @query = Query.find_by(id: params[:id])
-        @plant = Plant.find_by(name: params[:plant][:name])
+        @plant = Plant.find_by(id: params[:plant_id])
     end
 
     def edit
@@ -41,6 +49,6 @@ class QueriesController < ApplicationController
 
       private
       def query_params
-    params.require(:query).permit(:question, :image_url, :plant_id, plant_attributes:[:name],)
+    params.require(:query).permit(:question, :image_url, :plant_id, plant_attributes:[:name])
       end
 end

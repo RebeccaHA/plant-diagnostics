@@ -1,4 +1,4 @@
-<%= @plants.each do |plant| %>
+<% @plants.each do |plant| %>
 <%= plant.name %>
 <%=link_to "plant queries", plant_queries_path(plant) %> <br>
 <%end%>

@@ -3,6 +3,10 @@
 <%= f.text_area :question %>
 <%= f.label :image_url, "Upload plant image" %>
 <%= f.file_field :image_url %>
+<%if selected_plant %>
+<p> Plant: <%= selected_plant %></p>
+<%= f.hidden_field :plant_id %>
+<%else%>
 <%= f.fields_for :plant do |plant| %>
 <%=plant.label "Plant:"%>
   <%= plant.text_field :name, list: "plant_autocomplete" %>
@@ -12,5 +16,6 @@
     <% end %><br><br>
   </datalist><br><br>
 <%end%>
+<%end%>  
 <%= f.submit %>
 <%end%>
