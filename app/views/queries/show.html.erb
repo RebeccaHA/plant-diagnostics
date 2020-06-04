@@ -1,5 +1,12 @@
-
+<!-- remember to add plant name, says no method .name but set up ok in my diagnosis controller -->
 <%= @query.question %>
 <%= @query.image_url %> <br>
-<%= link_to "Add diagnosis", new_query_diagnosis_path(@query) %>
-<%= display_diagnosis %>
+<%= link_to "Add diagnosis", new_query_diagnosis_path(@query) %> <br>
+<% if @query.diagnoses %>
+<% @query.diagnoses.each do |diagnosis| %>
+<%= diagnosis.comment %> <br>
+<%= link_to "#{diagnosis.user.name}", user_path(diagnosis.user.id) %> 
+Created at: <%= diagnosis.created_at %> <br>
+
+<%end%>
+<%end%>
