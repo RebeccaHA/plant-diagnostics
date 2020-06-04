@@ -3,6 +3,8 @@ class Query < ApplicationRecord
     belongs_to :plant
     has_many :diagnoses
     accepts_nested_attributes_for :plant
+    validates :question, presence: true
+    validates :plant_id, presence: true
 
     def plant_name=(name)
       self.plant = Plant.find_or_create_by(name: name)
