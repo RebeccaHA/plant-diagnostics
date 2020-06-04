@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+body{
+    font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0;
+    padding: 1rem;
+}

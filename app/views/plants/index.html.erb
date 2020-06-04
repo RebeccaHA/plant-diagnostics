@@ -1,4 +1,12 @@
-<% @plants.each do |plant| %>
-<%= plant.name %>
-<%=link_to "plant queries", plant_queries_path(plant) %> <br>
-<%end%>
+<div class="container">
+ <img src="banner.jpg" class="banner">
+  <h1>ALL PLANTS</h1>
+   <div class="cards">
+   <% @plants.each do |plant| %>
+    <div class="card">
+    <%= plant.name %>
+    <%=link_to "plant queries", plant_queries_path(plant) %> <br>
+    </div>
+   <%end%>
+  </div>
+</div>

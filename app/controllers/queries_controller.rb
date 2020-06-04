@@ -5,7 +5,7 @@ class QueriesController < ApplicationController
         @query.plant_id = params[:plant_id]
       else
         @query.build_plant
-      end #add if statement for plant _id
+      end 
     end
 
     def create
@@ -27,7 +27,6 @@ class QueriesController < ApplicationController
     end
 
     def show
-   
         @query = Query.find_by(id: params[:id])
         @plant = @query.plant
     end
