@@ -1,4 +1,5 @@
 <%= form_for @diagnosis do |f| %>
+<%= f.hidden_field :query_id %>
 <%= f.text_area :comment %>
 <%= f.submit %>
 <%end%>
