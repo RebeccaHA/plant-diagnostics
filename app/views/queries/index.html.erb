@@ -1,3 +1,4 @@
+<div class="container">
 <%= @plant.name %><br>
 <% @plant.queries.each do |query| %>
 Q: <%= query.question %>
@@ -5,3 +6,4 @@ Q: <%= query.question %>
 <%end%>
 <br>
 <%= link_to "Create a new query", new_plant_query_path(@plant) %>
+</div>

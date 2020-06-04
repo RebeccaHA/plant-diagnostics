@@ -18,5 +18,34 @@ body{
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0;
-    padding: 1rem;
+  
+    margin: 0px;
 }
+
+.container{
+    margin: 16px auto;
+    max-width: 960px;
+    padding: 2.25%; /* 18px / 800px */
+    width: 85%;
+    background-color: whitesmoke;
+}
+
+ul{
+    display: flex;
+    list-style-type: none;
+    float: right;
+    padding: 5px;
+}
+
+.nav-item{
+    padding: 5px;
+}
+
+li a:hover {
+    background-color: #ddd;
+  }
+  
+  li a.active {
+    color: white;
+    background-color: grey;
+  }
