@@ -29,7 +29,7 @@ class QueriesController < ApplicationController
     def show
    
         @query = Query.find_by(id: params[:id])
-        @plant = Plant.find_by(id: params[:plant_id])
+        @plant = @query.plant
     end
 
     def edit
