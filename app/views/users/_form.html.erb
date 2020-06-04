@@ -1,11 +1,7 @@
 <h1>Sign Up</h1>
 
-<% if @user.errors.any? %>
-<div id= "error_explanation">
-    <% @user.errors.full_messages.each do |message| %>
-    <%= message %><br>
-<%end%>
-<%end%>
+<div class="errors-explanation">
+    <%=form_errors(@user)%>
 </div>
 
 <%=form_for @user do |f| %>

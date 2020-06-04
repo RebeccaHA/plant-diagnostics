@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_174220) do
+ActiveRecord::Schema.define(version: 2020_06_04_211027) do
 
   create_table "diagnoses", force: :cascade do |t|
     t.string "comment"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_174220) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image_url"
   end
 
   create_table "queries", force: :cascade do |t|

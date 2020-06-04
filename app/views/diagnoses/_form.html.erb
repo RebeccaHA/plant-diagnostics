@@ -1,9 +1,5 @@
-<% if @diagnosis.errors.any? %>
-<div id= "error_explanation">
-    <% @diagnosis.errors.full_messages.each do |message| %>
-    <%= message %><br>
-<%end%>
-<%end%>
+<div class="errors-explanation">
+<%=form_errors(@diagnosis)%>
 </div>
 
 <%= form_for @diagnosis do |f| %>

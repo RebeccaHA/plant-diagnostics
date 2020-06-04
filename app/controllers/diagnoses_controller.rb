@@ -10,9 +10,12 @@ class DiagnosesController < ApplicationController
         @query = Query.find_by(id: params[:diagnosis][:query_id])
         @plant = @query.plant
         @diagnosis.user = current_user
-        @diagnosis.save
+       if @diagnosis.save
 
         redirect_to query_path(@query)
+       else
+        render :new
+       end
     end
 
     def edit

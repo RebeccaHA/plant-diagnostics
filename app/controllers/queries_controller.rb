@@ -16,9 +16,11 @@ class QueriesController < ApplicationController
           @query.plant = Plant.find_or_create_by(name: params[:query][:plant_attributes][:name])
         end
 
-        @query.save 
+        if @query.save 
         redirect_to plant_queries_path(@query.plant)
-        
+        else 
+          render :new
+        end
     end 
 
     def index
