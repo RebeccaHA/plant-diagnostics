@@ -5,7 +5,9 @@
 
 <%= form_for @diagnosis do |f| %>
 <%= f.hidden_field :query_id %>
-<%= f.text_area :comment %>
+<h3>Q: <%= @diagnosis.query.question %></h3><br>
+<%= f.label :comment, "Submit a plant diagnosis"%> <br><br>
+<%= f.text_area :comment, cols: 100, rows: 10  %><br><br>
 <%= f.submit %>
 <%end%>
 </div>

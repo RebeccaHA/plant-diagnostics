@@ -4,12 +4,12 @@
   </div>
 
 <%=form_for @query do |f| %>
-<%= f.label :question, "Query" %>
-<%= f.text_area :question %>
+<%= f.label :question, "Submit a plant query" %><br><br>
+<%= f.text_area :question, cols: 100, rows: 10  %><br><br>
 <%= f.label :image_url, "Upload plant image" %>
 <%= f.file_field :image_url %>
 <%if selected_plant %>
-<p> Plant: <%= selected_plant %></p>
+<h3> Plant: <%= selected_plant %></h3>
 <%= f.hidden_field :plant_id %>
 <%else%>
 <%= f.fields_for :plant do |plant| %>
