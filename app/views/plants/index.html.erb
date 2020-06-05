@@ -5,10 +5,11 @@
 <div class="container">
   <div class="cards">
   <% @plants.each do |plant| %>
-    <div class="card">
+  
+  <div class="card">
     <img src="<%= plant.image_url %>">
     <%= plant.name %><br>
-    <%=link_to "plant queries", plant_queries_path(plant) %> 
+    <%=link_to "plant queries", plant_queries_path(plant) %>
     </div> 
   <%end%>    
 
