@@ -1,12 +1,14 @@
 <div class="container">
-<%= @plant.name %>
-<%= @query.question %>
-<%= @query.image_url %> <br>
+<h3><%= @plant.name %></h3> <br>
+Q: <%= @query.question %> <br><br>
+<% if @query.image.attached?%>
+<img src="<%=(url_for(@query.image))%>"><br><br>
+<%end%>
 <%= link_to "Add diagnosis", new_query_diagnosis_path(@query) %> <br>
 
 <% @query.diagnoses.each do |diagnosis| %>
 <div class="diagnosis">
-<%= diagnosis.comment %> <br>
+A: <%= diagnosis.comment %> <br>
 <%= link_to "#{diagnosis.user.name}", user_path(diagnosis.user.id) %> 
 Created at: <%= diagnosis.created_at %> <br>
 </div>

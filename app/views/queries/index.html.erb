@@ -1,8 +1,8 @@
 <div class="container">
-<%= @plant.name %><br>
+<h3><%= @plant.name %></h3><br>
 <% @plant.queries.each do |query| %>
 Q: <%= query.question %>
-<%= link_to "Query", plant_query_path(@plant,query) %> <br>
+<%= link_to "View query", plant_query_path(@plant,query) %> <br>
 <%end%>
 <br>
 <%= link_to "Create a new query", new_plant_query_path(@plant) %>

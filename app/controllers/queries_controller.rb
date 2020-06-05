@@ -41,15 +41,9 @@ class QueriesController < ApplicationController
 
     end
 
-    def upload
-        uploaded_file = params[:query][:image_url]
-        File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
-          file.write(uploaded_file.read)
-        end
-      end
 
       private
       def query_params
-    params.require(:query).permit(:question, :image_url, :plant_id, plant_attributes:[:name])
+       params.require(:query).permit(:question, :image, :plant_id, plant_attributes:[:name])
       end
 end

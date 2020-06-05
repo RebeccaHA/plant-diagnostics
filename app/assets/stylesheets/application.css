@@ -21,6 +21,10 @@ body{
   
     margin: 0px;
 }
+textarea, input, button, select { 
+    font-family: inherit; 
+    font-size: inherit; 
+}
 
 .container{
     margin: 16px auto;
