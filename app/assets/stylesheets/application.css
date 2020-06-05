@@ -54,3 +54,7 @@ li a:hover {
     color: white;
     background-color: grey;
   }
+
+  .field_with_errors{
+    border: 3px solid coral;
+  }

@@ -6,13 +6,13 @@
 </div>
 
 <%=form_for @user do |f| %>
-<%=f.label :name, "Name" %>
+<%=f.label "Name" %>
 <%=f.text_field :name %>
-<%=f.label :email, "Email" %>
+<%=f.label "Email" %>
 <%=f.email_field :email %>
-<%=f.label :password, "Password" %>
+<%=f.label "Password" %>
 <%=f.password_field :password %>
-<%=f.label :expertise, "Expertise" %>
+<%=f.label  "Expertise" %>
 <%=f.select :expertise, ['Novice', 'Intermediate', 'Expert'] %>
 <%= f.submit %>
 <%end%>

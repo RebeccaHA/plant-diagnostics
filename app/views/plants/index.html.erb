@@ -7,7 +7,7 @@
   <% @plants.each do |plant| %>
   
   <div class="card">
-    <img src="<%= plant.image_url %>">
+    <img src="<%=plant.image_url %>">
     <%= plant.name %><br>
     <%=link_to "plant queries", plant_queries_path(plant) %>
     </div> 
