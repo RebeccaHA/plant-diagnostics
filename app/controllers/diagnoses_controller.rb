@@ -19,7 +19,7 @@ class DiagnosesController < ApplicationController
     end
 
     def upvote
-        @diagnosis= Diagnosis.find(params[:id])
+        @diagnosis= Diagnosis.find(params[:diagnosis_id])
         @diagnosis.increment!(:upvote)
         @query=Query.find(params[:id])
         redirect_to query_path(@query)

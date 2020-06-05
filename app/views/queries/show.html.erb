@@ -10,7 +10,7 @@ Q: <%= @query.question %> <br><br>
 <div class="diagnosis">
 A: <%= diagnosis.comment %> 
 Upvote:<%= diagnosis.upvote %> 
-<%= button_to "Upvote this answer", upvote_path(@query), method: :put %>
+<%= button_to "Upvote this answer", upvote_path(@query), params: {diagnosis_id: diagnosis.id}, method: :patch %>
 <%= link_to "#{diagnosis.user.name}", user_path(diagnosis.user.id) %> 
 Created at: <%= diagnosis.created_at %> <br>
 </div>
