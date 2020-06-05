@@ -13,18 +13,25 @@
  *= require_tree .
  *= require_self
  */
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
 body{
     font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0;
-  
-    margin: 0px;
+    
 }
+
+    
 textarea, input, button, select { 
     font-family: inherit; 
     font-size: inherit; 
 }
+
 
 .container{
     margin: 16px auto;
@@ -33,32 +40,51 @@ textarea, input, button, select {
     width: 85%;
     background-color: whitesmoke;
 }
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    padding: 20px;
+    height: 250px;
+    margin: 30px 15px;
+}
+
+.card img{
+    height: 150px;
+}
 
 nav{
-    display: inline-block;
-    margin-left: 1250px;
-}
-
-ul{
-    display: flex;
-    list-style-type: none;
-    float: right;
     padding: 5px;
+    display: flex;  
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: greenyellow;
+    width: 100%; 
 }
+ nav a{
+     padding: 10px;
+ }
+ nav div{
+ 
+    display:flex;
+ }
 
-.nav-item{
-    padding: 5px;
+.search{
+    padding: 10px;
 }
-
-li a:hover {
-    background-color: #ddd;
-  }
-  
-  li a.active {
-    color: white;
-    background-color: grey;
-  }
 
   .field_with_errors{
-    border: 3px solid coral;
+    padding: 2px;
+    background-color: red;
+    display: table;
   }

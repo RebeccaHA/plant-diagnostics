@@ -12,7 +12,7 @@ class QueriesController < ApplicationController
         @query = Query.new(query_params)
         @query.user = current_user
      
-        if !@query.plant_id
+        if !@query.plant_id && @query.user
           @query.plant = Plant.find_or_create_by(name: params[:query][:plant_attributes][:name])
         end
 

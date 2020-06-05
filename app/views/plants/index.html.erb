@@ -1,6 +1,8 @@
 <div class="hero-banner">
- <img src="banner.jpg" class="banner">
- <h1>ALL PLANTS</h1>
+ <!-- <div class="banner-title">
+  <img src="banner.jpg"> -->
+ <h1 id="title">ALL PLANTS</h1>
+<!-- </div> -->
 </div>
 <div class="container">
   <div class="cards">
@@ -8,8 +10,8 @@
   
   <div class="card">
     <img src="<%=plant.image_url %>">
-    <%= plant.name %><br>
-    <%=link_to "plant queries", plant_queries_path(plant) %>
+    <p><%= plant.name %><br>
+    <%=link_to "plant queries", plant_queries_path(plant) %></p>
     </div> 
   <%end%>    
 

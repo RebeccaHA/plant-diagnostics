@@ -8,7 +8,9 @@ Q: <%= @query.question %> <br><br>
 
 <% @query.diagnoses.each do |diagnosis| %>
 <div class="diagnosis">
-A: <%= diagnosis.comment %> <br>
+A: <%= diagnosis.comment %> 
+Upvote:<%= diagnosis.upvote %> 
+<%= button_to "Upvote this answer", upvote_path(@query), method: :put %>
 <%= link_to "#{diagnosis.user.name}", user_path(diagnosis.user.id) %> 
 Created at: <%= diagnosis.created_at %> <br>
 </div>

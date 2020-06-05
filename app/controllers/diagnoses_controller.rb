@@ -18,12 +18,11 @@ class DiagnosesController < ApplicationController
        end
     end
 
-    def edit
-    
-    end
-
-    def update
-
+    def upvote
+        @diagnosis= Diagnosis.find(params[:id])
+        @diagnosis.increment!(:upvote)
+        @query=Query.find(params[:id])
+        redirect_to query_path(@query)
     end
     
     private

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
+  get '/search', to: 'plants#search'
+  put '/queries/:id/upvote', to: 'diagnoses#upvote', as:'upvote'
 
   get "/auth/:provider/callback", to: 'sessions#google_oauth2'
   

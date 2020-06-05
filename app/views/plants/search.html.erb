@@ -1,0 +1,14 @@
+
+<div class="container">
+<h3>Search Result</h3>  
+<div class = "cards">
+    <% @results.each do |result| %>  
+    <div class="card">
+        
+        <img src="<%=result.image_url %>"><br>
+        <%= result.name %><br>
+        <%=link_to "plant queries", plant_queries_path(result) %> <br> <br>
+    </div>
+    <% end %>
+  </div>
+</div>

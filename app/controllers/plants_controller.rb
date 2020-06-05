@@ -8,20 +8,15 @@ class PlantsController < ApplicationController
 
     end
     
-    def new
-
+    def search
+            if params[:term].blank?  
+              redirect_to(plants_path, alert: "Empty field!") and return  
+            else  
+                @parameter = params[:term].downcase  
+                @results = Plant.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")  
+            end  
     end
 
-    def create
-
-    end
-
-    def edit
-    
-    end
-
-    def update
-
-    end
+ 
     
 end

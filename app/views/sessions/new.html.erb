@@ -1,7 +1,11 @@
+
 <div class="container">
+        <div class="errors-explanation">
+                <%=form_errors(@user)%>
+        </div>
 <h1>Log In</h1>
 <%= form_for :user do |f| %>
-<%= f.label :name, "Name" %>
+<%= f.label "Name" %>
 <%= f.text_field :name %>
 <%= f.label :password, "Password" %>
 <%= f.password_field :password %>
