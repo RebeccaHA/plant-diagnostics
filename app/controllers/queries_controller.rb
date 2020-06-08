@@ -1,5 +1,7 @@
 class QueriesController < ApplicationController
-    def new
+  before_action :require_login
+  
+  def new
       @query = Query.new
       if params[:plant_id]
         @query.plant_id = params[:plant_id]

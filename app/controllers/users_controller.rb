@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+    before_action :require_login, except: [:home, :new, :create]
+    
     def new
         @user = User.new
     end

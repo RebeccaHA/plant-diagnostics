@@ -1,4 +1,6 @@
 class DiagnosesController < ApplicationController
+    before_action :require_login
+    
     def new
         @diagnosis = Diagnosis.new
         @diagnosis.query_id = params[:query_id]

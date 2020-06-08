@@ -1,4 +1,6 @@
 class PlantsController < ApplicationController
+    before_action :require_login, except: :index
+    
     def index
     @plants = Plant.all
     end

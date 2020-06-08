@@ -22,13 +22,14 @@
         <% if current_user %>
         <%= link_to "Profile", user_path(current_user) %>
         <%= link_to "Logout", logout_path %>
-       <%end%>
-       <div class="search">
+        <div class="search">
           <%= form_tag search_path, method: :get do %>
           <%= search_field_tag :term, params[:term], placeholder: "Search"%>
           <%= button_tag "", name:nil, class:"fa fa-search" %>
         <%end%>
       </div>
+       <%end%>
+      
       </div>
       </nav>
    
