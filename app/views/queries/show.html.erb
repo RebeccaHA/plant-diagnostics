@@ -6,7 +6,7 @@ Q: <%= @query.question %> <br><br>
 <%end%>
 <%= link_to "Add diagnosis", new_query_diagnosis_path(@query) %> <br>
 
-<% @query.diagnoses.each do |diagnosis| %>
+<% @diagnoses.each do |diagnosis| %>
 <div class="diagnosis">
 A: <%= diagnosis.comment %> 
 Upvote:<%= diagnosis.upvote %> 

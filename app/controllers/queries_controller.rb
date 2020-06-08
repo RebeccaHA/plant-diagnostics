@@ -31,6 +31,7 @@ class QueriesController < ApplicationController
     def show
         @query = Query.find_by(id: params[:id])
         @plant = @query.plant
+        @diagnoses = Diagnosis.best_diagnoses(@query.id)
     end
 
     def edit

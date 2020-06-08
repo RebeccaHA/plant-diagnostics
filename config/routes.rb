@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   resources :users
   
   resources :queries do
-    resources :diagnoses, only: [:index, :create, :show, :new, :edit]
+    resources :diagnoses, only: [:index, :create, :show, :new]
   end
 
-  resources :diagnoses, only: [:index, :create, :show, :new, :edit]
+  resources :diagnoses, only: [:create, :show, :new]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -18,13 +18,13 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback", to: 'sessions#google_oauth2'
   
   resources :plants do
-    resources :queries, only: [:index, :create, :show, :new, :edit]
+    resources :queries, only: [:index, :create, :show, :new]
   end
 
   
-  resources :queries, only: [:index,:create, :show, :new, :edit]
+  resources :queries, only: [:index,:create, :show, :new]
 
-  root 'static#home'
+  root 'plants#index'
 
 
 end
