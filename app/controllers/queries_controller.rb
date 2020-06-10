@@ -1,15 +1,15 @@
 class QueriesController < ApplicationController
   before_action :require_login
-  before_action :set_plant, only: [:index]
-  before_action :set_query, only: [:show]
+  before_action :set_plant, only: :index
+  before_action :set_query, only: :show
   
   def new
       @query = Query.new
-      if params[:plant_id]
-        @query.plant_id = params[:plant_id]
-      else
-        @query.build_plant
-      end 
+        if params[:plant_id]
+          @query.plant_id = params[:plant_id]
+        else
+          @query.build_plant
+        end 
   end
 
   def create

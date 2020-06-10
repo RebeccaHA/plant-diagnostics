@@ -9,17 +9,15 @@ class DiagnosesController < ApplicationController
     end
 
     def create
- 
         @diagnosis = Diagnosis.new(diagnosis_params)
         @query = Query.find_by(id: params[:diagnosis][:query_id])
         @plant = @query.plant
         @diagnosis.user = current_user
-       if @diagnosis.save
-
-        redirect_to query_path(@query)
-       else
-        render :new
-       end
+            if @diagnosis.save
+                redirect_to query_path(@query)
+            else
+                render :new
+            end
     end
 
     def upvote
