@@ -36,13 +36,6 @@ class QueriesController < ApplicationController
         @diagnoses = Diagnosis.best_diagnoses(@query.id)
     end
 
-    def edit
-    
-    end
-
-    def update
-
-    end
 
 
       private
