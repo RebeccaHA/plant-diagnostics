@@ -1,5 +1,7 @@
 class QueriesController < ApplicationController
   before_action :require_login
+  before_action :set_plant, only: [:index]
+  before_action :set_query, only: [:show]
   
   def new
       @query = Query.new
@@ -23,21 +25,19 @@ class QueriesController < ApplicationController
         end
   end 
 
-    def index
-      @plant = Plant.find_by(id: params[:plant_id])
+  def index
     
-    end
+  end
 
-    def show
-        @query = Query.find_by(id: params[:id])
-        @plant = @query.plant
-        @diagnoses = Diagnosis.best_diagnoses(@query.id)
-    end
-
+  def show
+      @plant = @query.plant
+      @diagnoses = Diagnosis.best_diagnoses(@query.id)
+  end
 
 
-      private
-      def query_params
-       params.require(:query).permit(:question, :image, :plant_id, plant_attributes:[:name])
-      end
+
+  private
+  def query_params
+      params.require(:query).permit(:question, :image, :plant_id, plant_attributes:[:name])
+  end
 end

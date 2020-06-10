@@ -1,5 +1,7 @@
 class DiagnosesController < ApplicationController
     before_action :require_login
+    before_action :set_query, only: [:upvote]
+    
     
     def new
         @diagnosis = Diagnosis.new
@@ -23,7 +25,6 @@ class DiagnosesController < ApplicationController
     def upvote
         @diagnosis= Diagnosis.find(params[:diagnosis_id])
         @diagnosis.increment!(:upvote)
-        @query=Query.find(params[:id])
         redirect_to query_path(@query)
     end
     

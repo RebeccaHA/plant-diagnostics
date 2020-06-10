@@ -11,7 +11,7 @@
   <div class="card">
     <img src="<%=plant.image_url %>">
     <p><%= plant.name %><br>
-      <% if current_user %>
+      <% if current_user  %>
     <%=link_to "plant queries", plant_queries_path(plant) %></p>
     <%end%>
     </div> 
