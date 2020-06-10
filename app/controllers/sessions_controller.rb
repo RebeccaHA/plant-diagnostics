@@ -19,12 +19,9 @@ class SessionsController < ApplicationController
     end
 
     def google_oauth2
-        @user = User.find_or_create_by(name: auth['name']) do |u|
-            u.name = auth['info']['name']
-            u.email = auth['info']['email']
-            u.password = "password"
-        end
-
+       
+       @user = User.find_or_create_by_auth(auth)
+  
         if @user.save
           session[:user_id] = @user.id
           redirect_to user_path(@user)

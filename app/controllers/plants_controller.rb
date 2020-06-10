@@ -2,7 +2,12 @@ class PlantsController < ApplicationController
     before_action :require_login, except: :index
     
     def index
-    @plants = Plant.all
+        if params[:term]
+            parameter = params[:term].downcase  
+            @plants = Plant.search(parameter)
+        else
+        @plants = Plant.all
+        end
     end
 
     def show
@@ -10,15 +15,7 @@ class PlantsController < ApplicationController
 
     end
     
-    def search
-            if params[:term].blank?  
-              redirect_to(plants_path, alert: "Empty field!") and return  
-            else  
-                @parameter = params[:term].downcase  
-                @results = Plant.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")  
-            end  
-    end
 
- 
+
     
 end

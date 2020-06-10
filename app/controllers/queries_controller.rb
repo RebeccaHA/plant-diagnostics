@@ -8,22 +8,20 @@ class QueriesController < ApplicationController
       else
         @query.build_plant
       end 
-    end
+  end
 
-    def create
-        @query = Query.new(query_params)
-        @query.user = current_user
-     
-        if !@query.plant_id && @query.user
+  def create
+      @query = current_user.queries.new(query_params)
+        if !@query.plant_id 
           @query.plant = Plant.find_or_create_by(name: params[:query][:plant_attributes][:name])
         end
 
         if @query.save 
-        redirect_to plant_queries_path(@query.plant)
+          redirect_to plant_queries_path(@query.plant)
         else 
           render :new
         end
-    end 
+  end 
 
     def index
       @plant = Plant.find_by(id: params[:plant_id])
