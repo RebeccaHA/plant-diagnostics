@@ -29,8 +29,7 @@ class SessionsController < ApplicationController
           session[:user_id] = @user.id
           redirect_to user_path(@user)
         else
-          flash[:error] = 'There was a problem signing you in through Google. Please register or try signing in later.'
-          render :new
+          redirect_to '/login'
         end 
     end
  
