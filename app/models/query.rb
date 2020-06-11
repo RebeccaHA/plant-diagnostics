@@ -5,6 +5,4 @@ class Query < ApplicationRecord
     has_one_attached :image
     accepts_nested_attributes_for :plant
     validates :question, presence: true
-
-
 end

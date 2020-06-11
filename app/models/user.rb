@@ -8,11 +8,10 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
 
     def self.find_or_create_by_auth(auth)
-       self.find_or_create_by(name: auth['info']['name']) do |u|
+        self.find_or_create_by(name: auth['info']['name']) do |u|
             u.name = auth['info']['name']
             u.email = auth['info']['email']
             u.password = SecureRandom.hex
         end
     end
-
 end

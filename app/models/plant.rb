@@ -6,5 +6,4 @@ class Plant < ApplicationRecord
     def self.search(parameter)
         self.where("lower(name) LIKE :search", search: "%#{parameter}%")  
     end
- 
 end

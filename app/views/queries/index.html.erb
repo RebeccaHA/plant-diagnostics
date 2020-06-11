@@ -1,5 +1,5 @@
 <div class="container">
-<h3><%= @plant.name %></h3><br>
+<h3><%= @plant.name %></><br>
 <% @plant.queries.each do |query| %>
 Q: <%= query.question %>
 <%= link_to "View query", plant_query_path(@plant,query) %> <br>

@@ -1,19 +1,18 @@
 <div class="container">
 <h3><%= @plant.name %></h3> <br>
 Q: <%= @query.question %> <br><br>
-<% if @query.image.attached?%>
-<img src="<%=(url_for(@query.image))%>"><br><br>
-<%end%>
+    <%if @query.image.attached?%>
+    <img src="<%=(url_for(@query.image))%>"><br><br>
+    <%end%>
 <%= link_to "Add diagnosis", new_query_diagnosis_path(@query) %> <br>
 
 <% @diagnoses.each do |diagnosis| %>
-<div class="diagnosis">
-A: <%= diagnosis.comment %> 
-Upvote:<%= diagnosis.upvote %> 
-<%= button_to "Upvote this answer", upvote_path(@query), params: {diagnosis_id: diagnosis.id}, method: :patch %>
-<%= link_to "#{diagnosis.user.name}", user_path(diagnosis.user.id) %> 
-Created at: <%= diagnosis.created_at %> <br>
-</div>
-
+    <div class="diagnosis">
+    A: <%= diagnosis.comment %> 
+    Upvote:<%= diagnosis.upvote %> 
+    <%= button_to "Upvote this answer", upvote_path(@query), params: {diagnosis_id: diagnosis.id}, method: :patch %>
+    <%= link_to "#{diagnosis.user.name}", user_path(diagnosis.user.id) %> 
+    Created at: <%= diagnosis.created_at %> <br>
+    </div>
 <%end%>
 </div>

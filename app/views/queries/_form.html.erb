@@ -1,5 +1,5 @@
 <div class="container">
-<div class="errors-explanation">
+  <div class="errors-explanation">
     <%=form_errors(@query)%>
   </div>
 
@@ -8,19 +8,19 @@
 <%= f.text_area :question, cols: 100, rows: 10  %><br><br>
 <%= f.label "Upload plant image" %>
 <%= f.file_field :image %>
-<%if selected_plant %>
-<h3> Plant: <%= selected_plant %></h3>
-<%= f.hidden_field :plant_id %>
-<%else%>
-<%= f.fields_for :plant do |plant| %>
-<%=plant.label "Plant:"%>
+  <%if selected_plant %>
+  <h3> Plant: <%= selected_plant %></h3>
+  <%= f.hidden_field :plant_id %>
+  <%else%>
+  <%= f.fields_for :plant do |plant| %>
+  <%=plant.label "Plant:"%>
   <%= plant.text_field :name, list: "plant_autocomplete" %>
   <datalist id="plant_autocomplete">
     <% Plant.select(:name).distinct.each do |plant| %>
       <option value="<%= plant.name %>"><br>
-    <% end %><br><br>
+    <%end%><br><br>
   </datalist><br><br>
-<%end%>
+  <%end%>
 <%end%>  
 <%= f.submit %>
 <%end%>
